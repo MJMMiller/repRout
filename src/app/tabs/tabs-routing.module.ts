@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
+
 const routes: Routes = [
   {
     path: 'tabs',
@@ -13,7 +14,7 @@ const routes: Routes = [
         loadChildren: () => import('./inicio/inicio.module').then( hijo => hijo.InicioPageModule)
       },
       {//Instanciar pa pagina hija de inicio
-        path: 'nudo',
+        path: 'nudo/:id',
         loadChildren: () => import('./nudo/nudo.module').then( hijo => hijo.NudoPageModule)
       },
       {//Instanciar pa pagina hija de inicio
@@ -29,7 +30,7 @@ const routes: Routes = [
   },
   {//Padre por defecto
     path: '',
-    redirectTo:"tabs",
+    redirectTo:"tabs/inicio",
     pathMatch:"full"
   }
 ];
